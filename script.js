@@ -6,14 +6,13 @@ const meaningEl = document.getElementById("meaning");
 const audioEl = document.getElementById("audio");
 
 async function fetchAPI(word) {
-  const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
-
   try {
     infoTextEl.style.display = "block";
     meaningContainerEl.style.display = "none";
 
     infoTextEl.innerText = `Searching the meaning of "${word}" `;
 
+    const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
     const res = await fetch(url).then((res) => res.json());
 
     if (res.title) {
